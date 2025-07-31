@@ -4,7 +4,7 @@ A classic Snake game built with Python and Pygame, featuring a full graphical ov
 
 ## Gameplay Demo
 
-link_to_your_gif_here.gif
+![Gameplay GIF](gameplay.gif)
 
 ## Features
 
