@@ -1,3 +1,5 @@
+![GitHub release (latest by date)](https://img.shields.io/github/v/release/JonnIsAwayy/pygame-snake-game?color=green)
+
 # Snake with Power-Ups!
 
 A classic Snake game built with Python and Pygame, featuring a full graphical overhaul, a high-score system, and exciting power-ups!
