@@ -1,6 +1,5 @@
 import pygame
 import os
-import random
 from settings import *
 from snake import Snake
 from food import Food
@@ -10,7 +9,6 @@ SAVE_DIR = os.path.join(os.path.expanduser("~"), ".snake_powerups")
 SAVE_FILE = os.path.join(SAVE_DIR, "highscore.sav")
 
 def save_high_score(score):
-    """Saves the high score to a file."""
     try:
         if not os.path.exists(SAVE_DIR):
             os.makedirs(SAVE_DIR)
@@ -20,7 +18,6 @@ def save_high_score(score):
         print("Unable to save the high score.")
 
 def load_high_score():
-    """Loads the high score from a file."""
     if not os.path.exists(SAVE_FILE):
         return 0
     try:
@@ -30,20 +27,17 @@ def load_high_score():
         return 0
 
 def draw_grid(screen):
-    """Draws a grid on the screen."""
     for x in range(0, SCREEN_WIDTH, SNAKE_BLOCK_SIZE):
         pygame.draw.line(screen, GRID_COLOR, (x, 0), (x, SCREEN_HEIGHT))
     for y in range(0, SCREEN_HEIGHT, SNAKE_BLOCK_SIZE):
         pygame.draw.line(screen, GRID_COLOR, (0, y), (SCREEN_WIDTH, y))
 
 def display_score(screen, score):
-    """Displays the current score."""
     score_font = pygame.font.SysFont("comicsansms", 35)
     value = score_font.render("Score: " + str(score), True, YELLOW)
     screen.blit(value, [10, 10])
 
 def main_menu(screen, clock, high_score):
-    """Displays the main menu and waits for the player to start."""
     title_font = pygame.font.SysFont("bahnschrift", 70)
     prompt_font = pygame.font.SysFont("bahnschrift", 25)
     
@@ -75,7 +69,6 @@ def main_menu(screen, clock, high_score):
                 waiting = False
 
 def game_loop(screen, clock):
-    """Runs the main gameplay session and returns the final score."""
     player_snake = Snake()
     apple = Food()
     power_up = None
@@ -142,7 +135,6 @@ def game_loop(screen, clock):
     return score
 
 def game_over_screen(screen, clock, score, high_score):
-    """Displays the game over screen and waits for player input."""
     font_style = pygame.font.SysFont("bahnschrift", 50)
     font_style_small = pygame.font.SysFont("bahnschrift", 25)
     
@@ -185,7 +177,6 @@ def game_over_screen(screen, clock, score, high_score):
                     return True
 
 def main():
-    """Main function that controls the overall game flow."""
     pygame.init()
     screen = pygame.display.set_mode((SCREEN_WIDTH, SCREEN_HEIGHT))
     pygame.display.set_caption(CAPTION)
