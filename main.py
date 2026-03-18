@@ -1,4 +1,3 @@
-# main.py
 import pygame
 import os
 import random
@@ -7,7 +6,6 @@ from snake import Snake
 from food import Food
 from powerup import PowerUp
 
-# --- High Score Functions ---
 def save_high_score(score):
     """Saves the high score to a file."""
     try:
@@ -26,7 +24,6 @@ def load_high_score():
     except (IOError, ValueError):
         return 0
 
-# --- Drawing and UI Functions ---
 def draw_grid(screen):
     """Draws a grid on the screen."""
     for x in range(0, SCREEN_WIDTH, SNAKE_BLOCK_SIZE):
@@ -40,7 +37,6 @@ def display_score(screen, score):
     value = score_font.render("Score: " + str(score), True, YELLOW)
     screen.blit(value, [10, 10])
 
-# --- Game State Functions ---
 def main_menu(screen, clock, high_score):
     """Displays the main menu and waits for the player to start."""
     title_font = pygame.font.SysFont("bahnschrift", 70)
@@ -107,15 +103,16 @@ def game_loop(screen, clock):
 
         if player_snake.check_wall_collision() or player_snake.check_self_collision(snake_head):
             running = False
+            break
 
         if player_snake.x == apple.x and player_snake.y == apple.y:
             player_snake.grow()
             score += 1
-            apple.spawn()
+            apple.spawn(player_snake.body)
             
         current_time = pygame.time.get_ticks()
         if power_up is None and current_time - last_powerup_spawn_time > POWERUP_SPAWN_INTERVAL:
-            power_up = PowerUp()
+            power_up = PowerUp(player_snake.body, [apple.x, apple.y])
             last_powerup_spawn_time = current_time
 
         if power_up and player_snake.x == power_up.x and player_snake.y == power_up.y:
