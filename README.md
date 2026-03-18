@@ -16,6 +16,20 @@ A classic Snake game built with Python and Pygame, featuring a full graphical ov
 - **High-Score System:** Your highest score is automatically saved to a local file and displayed on the main menu.
 - **Polished UI:** Features a main menu, in-game score display, and a game-over screen with a visible grid and border.
 
+## Controls
+
+| Action            | Key            |
+| :---------------- | :------------- |
+| **Move Up**       | Up Arrow       |
+| **Move Down**     | Down Arrow     |
+| **Move Left**     | Left Arrow     |
+| **Move Right**    | Right Arrow    |
+| **Start/Restart** | Space or Enter |
+
+## Stable Release
+
+You can download the latest stable version (v1.0.0) from the [Releases Page](https://github.com/JonnIsAwayy/pygame-snake-game/releases/latest). This includes the source code packaged for the most recent milestone.
+
 ## How to Run
 
 1.  **Clone the repository:**
@@ -39,3 +53,7 @@ A classic Snake game built with Python and Pygame, featuring a full graphical ov
     ```bash
     python main.py
     ```
+
+---
+
+_Developed by [JonnIsAwayy](https://github.com/JonnIsAwayy)_
