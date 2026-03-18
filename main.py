@@ -6,20 +6,25 @@ from snake import Snake
 from food import Food
 from powerup import PowerUp
 
+SAVE_DIR = os.path.join(os.path.expanduser("~"), ".snake_powerups")
+SAVE_FILE = os.path.join(SAVE_DIR, "highscore.sav")
+
 def save_high_score(score):
     """Saves the high score to a file."""
     try:
-        with open("highscore.txt", "w") as f:
+        if not os.path.exists(SAVE_DIR):
+            os.makedirs(SAVE_DIR)
+        with open(SAVE_FILE, "w") as f:
             f.write(str(score))
     except IOError:
         print("Unable to save the high score.")
 
 def load_high_score():
     """Loads the high score from a file."""
-    if not os.path.exists("highscore.txt"):
+    if not os.path.exists(SAVE_FILE):
         return 0
     try:
-        with open("highscore.txt", "r") as f:
+        with open(SAVE_FILE, "r") as f:
             return int(f.read())
     except (IOError, ValueError):
         return 0
