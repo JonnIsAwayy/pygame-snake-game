@@ -1,4 +1,4 @@
-# 🐍 Snake with Power-Ups!
+# Snake with Power-Ups!
 
 A classic Snake game built with Python and Pygame, featuring a full graphical overhaul, a high-score system, and exciting power-ups!
 
